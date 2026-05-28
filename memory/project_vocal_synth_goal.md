@@ -26,8 +26,8 @@ Working dir `C:\ClaudeVocalSynth` (Windows 11) is the active implementation loca
 ## Current state (resume point as of 2026-05-28)
 
 - Repo cloned at `C:\ClaudeVocalSynth`. New deploy key in place, push verified. Auto-memory junction-linked into the repo (see [[project-install-state]]).
-- **Toolchain installed user-scope** (this session): gsudo 2.6.1, Python 3.12.10, Reaper 7.73 portable at `C:\Tools\Reaper`, ffmpeg 8.1.1 at `C:\Tools\ffmpeg\bin`, LibreSVIP 2.6.1 with `[cli]` extras. See [[project-install-state]] for absolute paths and gotchas.
-- **Only remaining blocker is user action**: purchase Synth V Studio 2 Pro + ≥1 voice DB from Dreamtonics, download the installer, and tell Claude the path. First-run license activation will require the user clicking through the Synth V GUI once.
+- **Toolchain installed** (this session): gsudo 2.6.1, Python 3.12.10, Reaper 7.73 portable at `C:\Tools\Reaper`, ffmpeg 8.1.1 at `C:\Tools\ffmpeg\bin`, LibreSVIP 2.6.1 with `[cli]` extras, and **Synth V Studio 2 Pro 2.2.1 (14-day trial)** at `C:\Program Files\Synthesizer V Studio 2 Pro\` with VST3 + ARA plugins registered under `C:\Program Files\Common Files\VST3\`. Plan is to validate the full pipeline on the trial before paying the $99 license. See [[project-install-state]] for absolute paths and gotchas.
+- **Only remaining user step**: first-run trial activation in the Synth V GUI (sign in, click through trial start, let it pull the included trial voice).
 - After that, the next concrete step is wiring up the pipeline: MIDI(+lyrics) → `.svp` (LibreSVIP) → Reaper project template loading Synth V VST3 → `reaper.exe -renderproject` → vocal WAV → ffmpeg mix with instrumental → final WAV.
 
 ## Open architecture questions to revisit during implementation

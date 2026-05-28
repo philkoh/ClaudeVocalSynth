@@ -28,16 +28,16 @@ Snapshot last updated **2026-05-28** for the Windows 11 machine (`AIwin`) at `C:
 - **Reaper 7.73 portable** at `C:\Tools\Reaper\reaper.exe`. Installed via `reaper773_x64-install.exe /S /PORTABLE /D=C:\Tools\Reaper`. No registry writes, no admin used.
 - **ffmpeg 8.1.1** (gyan.dev essentials build) at `C:\Tools\ffmpeg\bin\ffmpeg.exe`. `C:\Tools\ffmpeg\bin` added to user PATH.
 - **LibreSVIP 2.6.1** installed user-scope via `python -m pip install --user 'libresvip[cli]'`. CLI binary: `C:\Users\User\AppData\Roaming\Python\Python312\Scripts\libresvip-cli.exe`. ⚠️ The bare `libresvip` extra does **not** pull in `typer` — you need the `[cli]` extra for the CLI entry point to work. Scripts dir added to user PATH. Available subcommands: `conf`, `plugin`, `proj`, `rpc`.
+- **Synthesizer V Studio 2 Pro 2.2.1 trial** installed 2026-05-28. Installer downloaded from `https://download.dreamtonics.com/svstudio2/svstudio2-pro-setup-latest.exe` (Dreamtonics' main domain 403s WebFetch and `Invoke-WebRequest` but `curl.exe -A <browser-UA>` works fine — use that pattern for any Dreamtonics-side fetches). Installer was run interactively in an already-elevated PowerShell, so `gsudo` was not actually needed in the end. Trial is **14 days editor / 7 days voices, no credit card**, with 40-note-per-group cap on trial voices and rendering requires internet. Decision to switch from buying to trial-first: validate the pipeline end-to-end, then buy the $99 license (just relicenses the same install — no reinstall).
 
 ## Pending
 
 ### User-required (cannot delegate — see [[reference-windows-elevation]])
-- **Purchase Synth V Studio 2 Pro** from Dreamtonics store — **$99** as of 2026-05, **includes one complimentary voice DB** (no separate voice purchase required to get started). Extra v2 voices are $79 each if more variety is wanted later. Download installer from the (auth-walled) account portal; tell Claude the installer path.
-- **First-run license activation** in the Synth V GUI — interactive login dialog, not automatable.
+- **First-run trial activation** in the Synth V GUI — launch `synthv-studio.exe` from Start menu, click through the trial sign-in / "start 14-day trial" prompt, let it download the included trial voice(s). Interactive dialog, not automatable.
+- Eventually: purchase Synth V Studio 2 Pro from Dreamtonics store — **$99**, includes one complimentary voice DB (no separate voice purchase required). Extra v2 voices $79 each.
 
 ### Then Claude can finish autonomously
-1. Run Synth V installer (admin — via `gsudo`). Installs VST3 globally + registers under `Program Files`.
-2. Wire up the pipeline: MIDI(+lyrics) → `.svp` (LibreSVIP) → Reaper project template loading Synth V VST3 → `reaper.exe -renderproject … -renderaddmediaitems` → vocal WAV → ffmpeg mix with instrumental → final WAV.
+- Wire up the pipeline: MIDI(+lyrics) → `.svp` (LibreSVIP) → Reaper project template loading the Synth V VST3 → `reaper.exe -renderproject … -renderaddmediaitems` → vocal WAV → ffmpeg mix with instrumental → final WAV.
 
 ## Useful absolute paths (PATH-independent)
 
@@ -49,6 +49,9 @@ pip:        C:\Users\User\AppData\Local\Programs\Python\Python312\Scripts\pip.ex
 libresvip:  C:\Users\User\AppData\Roaming\Python\Python312\Scripts\libresvip-cli.exe
 reaper:     C:\Tools\Reaper\reaper.exe
 ffmpeg:     C:\Tools\ffmpeg\bin\ffmpeg.exe
+synthv editor: C:\Program Files\Synthesizer V Studio 2 Pro\synthv-studio.exe
+synthv VST3:   C:\Program Files\Common Files\VST3\Synthesizer V Studio 2 Plugin.vst3
+synthv ARA:    C:\Program Files\Common Files\VST3\Synthesizer V Studio 2 ARA Plugin.vst3
 ```
 
 See also [[project-vocal-synth-goal]], [[reference-windows-elevation]], [[feedback-commit-push-workflow]].
