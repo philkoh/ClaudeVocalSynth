@@ -1,22 +1,38 @@
 ---
 name: project-vocal-synth-goal
-description: ClaudeVocalSynth project — automating professional vocal synthesis from Claude Code on Ubuntu
+description: ClaudeVocalSynth — automate vocal synthesis from MIDI+karaoke via Synth V Pro VST3 + Reaper CLI on Windows 11
 metadata: 
   node_type: memory
   type: project
-  originSessionId: 7c7a1a74-2919-4d55-a838-4e5ee5213ae2
 ---
 
-Working directory `/home/phil/ClaudeVocalSynth` is the scaffolding location for a project aimed at **automating professional vocal synthesis from Claude Code**. As of 2026-05-28 the directory exists but is **not yet a git repo** and has no code in it — we are still in the evaluation/decision phase.
+Working dir `C:\ClaudeVocalSynth` (Windows 11) is the active implementation location for **automated vocal synthesis driven by Claude Code**.
 
-**Why:** User wants Claude Code to be able to drive vocal generation as part of a larger workflow (not just hand-edit in a GUI).
+## Pipeline (user-confirmed 2026-05-28)
 
-**How to apply:** When resuming work here, the user's open question is which automation path to take. The candidates discussed:
-- **NEUTRINO** (free, native Linux CLI, MusicXML → WAV) — the only true CLI option on Ubuntu, but voice quality/roster is the trade-off
-- **Synth V Studio 2 on Windows + Reaper CLI + Synth V VST3** — best automation pipeline for Synth V quality, but requires switching OS or running a Windows box
-- **Synth V `.svp` authoring via LibreSVIP on Ubuntu, render elsewhere** — hybrid workflow
-- **Legacy Synth V Studio 1** on Ubuntu — works natively but frozen, no Studio 2 voices
+1. **Input:** source MIDI files + karaoke (.kar or paired lyrics) from the internet.
+2. **Convert** MIDI + lyrics → Synth V `.svp` programmatically (LibreSVIP or direct JSON — `.svp` is plain JSON).
+3. **Render** `.svp` → vocal WAV via Synth V Studio Pro VST3 hosted inside Reaper, driven by `reaper.exe -renderproject ... -renderaddmediaitems` (headless CLI render).
+4. **Mix** vocal WAV back with the original instrumental track → final audio (ffmpeg).
+5. (Optional) play final WAV over PC audio.
 
-Last user message before pause: "do you have a github repo for this?" — assistant asked for disambiguation among Dreamtonics' official `svstudio-scripts`, LibreSVIP, UtaFormatix, NEUTRINO, or scaffolding a new local repo at `/home/phil/ClaudeVocalSynth`. **Awaiting user choice.**
+**Why this path:** It's the only documented headless-render route for Synth V on Windows. Studio 2 itself has no CLI / no `render()` in the scripting API; Reaper's `-renderproject` is the bridge. The OS switch from Ubuntu was the commitment to this path. See [[reference-synthv-automation-2026]].
 
-See also [[reference-synthv-automation-2026]], [[user-vocal-synth-context]].
+**Why:** User wants Claude Code to be able to drive vocal generation as part of a larger workflow, not hand-edit in a GUI. Studio 2 GUI is acceptable only for one-time licensing activation, not per-song.
+
+**How to apply:** Treat this as the architecture; when resuming, the next concrete step is wherever the install/wire-up sequence in [[project-install-state]] left off. Each delivered feature triggers the standing commit/push workflow ([[feedback-commit-push-workflow]]).
+
+## Current state (resume point as of 2026-05-28)
+
+- Repo cloned at `C:\ClaudeVocalSynth`. New deploy key in place, push verified. Auto-memory junction-linked into the repo (see [[project-install-state]]).
+- **Nothing application-side is installed yet.** Two blockers from the user:
+  1. **Elevation method choice** — gsudo recommended (see [[reference-windows-elevation]]).
+  2. **Synth V Pro license + voice DB purchase** from Dreamtonics, plus downloading the installer from the (auth-walled) account portal.
+- Once unblocked, install order: gsudo → Python (user-scope) → Reaper portable → ffmpeg → LibreSVIP → SynthV Pro (admin install) → first-run license activation (user, GUI) → wire up the MIDI→.svp→Reaper-render→mix pipeline.
+
+## Open architecture questions to revisit during implementation
+
+- **How does the `.svp` get into the Synth V VST3 instance in Reaper for headless render?** The plugin loads `.svp` via its own UI; Reaper's VST3 state chunk *may* persist this. Need to verify whether the cleanest approach is (a) Reaper template + ReaScript that pokes the plugin to load a fresh `.svp` per render, or (b) the Synth V VST3 directly consuming MIDI+lyric events from Reaper's MIDI item (which bypasses `.svp` entirely). Test both.
+- **Lyric/syllable alignment from .kar** files is non-trivial. LibreSVIP's MIDI converter handles standard layouts; weird karaoke files may need pre-cleaning.
+
+See also [[project-install-state]], [[reference-windows-elevation]], [[reference-synthv-automation-2026]].

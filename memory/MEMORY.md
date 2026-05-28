@@ -1,4 +1,6 @@
-- [User context — Ubuntu, pro vocal synth + Claude Code automation](user_vocal_synth_context.md) — who the user is and what they're evaluating
-- [Project goal — ClaudeVocalSynth](project_vocal_synth_goal.md) — automate pro vocal synthesis from Claude Code; resume point: user choosing GitHub repo path
-- [Reference — Synth V automation state (May 2026)](reference_synthv_automation_2026.md) — research snapshot: no CLI, Linux dropped in Studio 2, NEUTRINO is the only true Linux+CLI option
+- [User context — Windows 11 (AIwin), committed to Synth V + Reaper CLI path](user_vocal_synth_context.md) — who the user is and the chosen automation route
+- [Project goal — MIDI+karaoke → Synth V → mixed audio on Windows](project_vocal_synth_goal.md) — pipeline + current resume point
+- [Install state — what's done/pending on the Windows machine](project_install_state.md) — deploy key, junction, install order, blockers
+- [Windows elevation options — gsudo recommended](reference_windows_elevation.md) — admin shell vs gsudo vs per-command, and what can't be delegated
+- [Reference — Synth V automation snapshot (May 2026)](reference_synthv_automation_2026.md) — research snapshot; verify currency before acting
 - [Standing order — auto commit/push/memory on each feature](feedback_commit_push_workflow.md) — push to GitHub + update memory autonomously after each successful feature
