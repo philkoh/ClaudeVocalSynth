@@ -32,7 +32,7 @@ Snapshot last updated **2026-05-28** for the Windows 11 machine (`AIwin`) at `C:
 ## Pending
 
 ### User-required (cannot delegate — see [[reference-windows-elevation]])
-- **Purchase Synth V Studio 2 Pro + ≥1 voice DB** from Dreamtonics; download installer from the (auth-walled) account portal; tell Claude the installer path.
+- **Purchase Synth V Studio 2 Pro** from Dreamtonics store — **$99** as of 2026-05, **includes one complimentary voice DB** (no separate voice purchase required to get started). Extra v2 voices are $79 each if more variety is wanted later. Download installer from the (auth-walled) account portal; tell Claude the installer path.
 - **First-run license activation** in the Synth V GUI — interactive login dialog, not automatable.
 
 ### Then Claude can finish autonomously
