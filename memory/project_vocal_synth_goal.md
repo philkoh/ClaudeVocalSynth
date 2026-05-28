@@ -4,6 +4,7 @@ description: ClaudeVocalSynth — automate vocal synthesis from MIDI+karaoke via
 metadata: 
   node_type: memory
   type: project
+  originSessionId: 1969a9c5-5044-4091-b878-cd204fd5a501
 ---
 
 Working dir `C:\ClaudeVocalSynth` (Windows 11) is the active implementation location for **automated vocal synthesis driven by Claude Code**.
@@ -25,10 +26,9 @@ Working dir `C:\ClaudeVocalSynth` (Windows 11) is the active implementation loca
 ## Current state (resume point as of 2026-05-28)
 
 - Repo cloned at `C:\ClaudeVocalSynth`. New deploy key in place, push verified. Auto-memory junction-linked into the repo (see [[project-install-state]]).
-- **Nothing application-side is installed yet.** Two blockers from the user:
-  1. **Elevation method choice** — gsudo recommended (see [[reference-windows-elevation]]).
-  2. **Synth V Pro license + voice DB purchase** from Dreamtonics, plus downloading the installer from the (auth-walled) account portal.
-- Once unblocked, install order: gsudo → Python (user-scope) → Reaper portable → ffmpeg → LibreSVIP → SynthV Pro (admin install) → first-run license activation (user, GUI) → wire up the MIDI→.svp→Reaper-render→mix pipeline.
+- **Toolchain installed user-scope** (this session): gsudo 2.6.1, Python 3.12.10, Reaper 7.73 portable at `C:\Tools\Reaper`, ffmpeg 8.1.1 at `C:\Tools\ffmpeg\bin`, LibreSVIP 2.6.1 with `[cli]` extras. See [[project-install-state]] for absolute paths and gotchas.
+- **Only remaining blocker is user action**: purchase Synth V Studio 2 Pro + ≥1 voice DB from Dreamtonics, download the installer, and tell Claude the path. First-run license activation will require the user clicking through the Synth V GUI once.
+- After that, the next concrete step is wiring up the pipeline: MIDI(+lyrics) → `.svp` (LibreSVIP) → Reaper project template loading Synth V VST3 → `reaper.exe -renderproject` → vocal WAV → ffmpeg mix with instrumental → final WAV.
 
 ## Open architecture questions to revisit during implementation
 
