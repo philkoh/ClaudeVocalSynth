@@ -1,0 +1,4 @@
+- [User context — Ubuntu, pro vocal synth + Claude Code automation](user_vocal_synth_context.md) — who the user is and what they're evaluating
+- [Project goal — ClaudeVocalSynth](project_vocal_synth_goal.md) — automate pro vocal synthesis from Claude Code; resume point: user choosing GitHub repo path
+- [Reference — Synth V automation state (May 2026)](reference_synthv_automation_2026.md) — research snapshot: no CLI, Linux dropped in Studio 2, NEUTRINO is the only true Linux+CLI option
+- [Standing order — auto commit/push/memory on each feature](feedback_commit_push_workflow.md) — push to GitHub + update memory autonomously after each successful feature
