@@ -4,3 +4,4 @@
 - [Windows elevation options — gsudo recommended](reference_windows_elevation.md) — admin shell vs gsudo vs per-command, and what can't be delegated
 - [Reference — Synth V automation snapshot (May 2026)](reference_synthv_automation_2026.md) — research snapshot; verify currency before acting
 - [Standing order — auto commit/push/memory on each feature](feedback_commit_push_workflow.md) — push to GitHub + update memory autonomously after each successful feature
+- [Reference — SV2 render automation pipeline + trial mute](reference_sv_render_pipeline.md) — how to drive SV2 autonomously via UIA, schema gotchas, and the trial-voice export-mute showstopper

@@ -31,6 +31,18 @@ Snapshot last updated **2026-05-28** for the Windows 11 machine (`AIwin`) at `C:
 - **Synthesizer V Studio 2 Pro 2.2.1 trial** installed 2026-05-28. Installer downloaded from `https://download.dreamtonics.com/svstudio2/svstudio2-pro-setup-latest.exe` (Dreamtonics' main domain 403s WebFetch and `Invoke-WebRequest` but `curl.exe -A <browser-UA>` works fine — use that pattern for any Dreamtonics-side fetches). Installer was run interactively in an already-elevated PowerShell, so `gsudo` was not actually needed in the end. Trial is **14 days editor / 7 days voices, no credit card**, with 40-note-per-group cap on trial voices and rendering requires internet. Decision to switch from buying to trial-first: validate the pipeline end-to-end, then buy the $99 license (just relicenses the same install — no reinstall).
 - **Trial voice downloaded**: **NOA Hex RDX** (English, masculine, by AUDIOLOGIE × Dreamtonics). 15 vocal modes, "switches effortlessly between baritone and falsetto" — strong tenor fit, no need to add a separate voice trial (e.g., Liam) unless we want stylistic variety later. Voice DB at `%APPDATA%\Dreamtonics\Synthesizer V Studio 2\databases\92512aba-0514-4efd-9d76-663952d23bff\201\` (128 MB `.dnni` neural model). UUID `92512aba-0514-4efd-9d76-663952d23bff` is not publicly indexed; identification came from the user inspecting the editor UI.
 
+## ⚠️ Trial-voice export restriction (discovered 2026-05-28)
+
+Synth V Studio 2 Pro **mutes trial voices during audio export** (Bounce to Files). The "Voice Trial Limits" dialog appears after Bounce, with the exact text:
+
+> "One or more voices have a trial license. The tracks containing trial voices were muted for audio export."
+
+This is enforced at export only — preview/playback in the editor itself still produces audio. So *any* fully-autonomous pipeline that writes a vocal WAV to disk requires a **purchased** voice DB. NOA Hex RDX is $79 on the AUDIOLOGIE store. Until purchased, exported WAVs are correct duration but silence.
+
+This blocks the user's "fully autonomous vocal generation" goal under the trial. Options when blocked:
+1. Purchase the voice ($79) — then `sv_render.py` produces real audio with zero script changes.
+2. Pivot to a free CLI synth (NEUTRINO has real CLI render on Windows and free voices, but voice quality is worse).
+
 ## Pending
 
 ### User-required (cannot delegate — see [[reference-windows-elevation]])

@@ -2,3 +2,13 @@ deploy_key
 *.pem
 .env
 .env.*
+
+# Soundfonts: large binary, easily re-downloaded (see scripts/README.md)
+soundfonts/
+
+# Generated audio: regenerate via the pipeline
+*.wav
+
+# Python caches
+__pycache__/
+*.pyc
