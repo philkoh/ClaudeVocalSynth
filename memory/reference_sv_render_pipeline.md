@@ -79,4 +79,30 @@ This means **the trial restriction is no longer a blocker for fully-autonomous v
 - SendKeys (`^o`): JUCE's main window accepted the keystroke but Synth V doesn't bind Ctrl+O to File→Open by default. Use the menu-item UIA click instead.
 - AutoHotkey route: works in principle, but UIA from Python is simpler and more inspectable.
 
+## Pronunciation control discoveries (NOA Hex RDX, 2026-05-29)
+
+- **The `+` syllable-continuation marker in `lyrics` does NOT survive file-load.** Typing `senses` then `+` in the editor live works; writing the same in a `.svp` and opening it produces sound at the literal `+` position that resembles the previous syllable rather than the intended second syllable. Use explicit `phonemes` per note instead.
+- **Per-note `phonemes` field** is the unambiguous control mechanism. Space-separated lowercase ARPABET tokens with no stress digits (`s eh n` not `S EH1 N`). Empty string means "use G2P from `lyrics`"; non-empty overrides G2P (equivalent to the editor's green-text override).
+- **Maximum Onset Principle syllabification** via CMUdict G2P works well: between two vowels with N intervening consonants, N=0 → split right after the vowel; N=1 → consonant goes to next syllable's onset; N≥2 → 1 consonant becomes the previous syllable's coda, the rest become the next syllable's onset. Implemented in `build_svp._syllabify`.
+- **NOA Hex drops/de-voices leading consonants at note onsets**, especially after a vowel coda. The user-discovered workaround: move every leading consonant to the END of the previous note's phonemes (so it's sustained across the boundary). Apply uniformly across all notes whose onset is within ~1/16 note of the previous note's end (preserves intentional pauses). Implemented as `build_svp.apply_leading_consonant_fix`.
+- This pattern likely applies to other SV2 voices too — the underlying acoustic model's consonant attack at note onset is the issue, not anything specific to NOA Hex.
+
+## Timing-precise export (`scripts/export_timing.py`)
+
+- Reads `.svp`, walks the tempo map, emits a CSV with per-note `onset_sec / end_sec / duration_sec` to microsecond precision.
+- Conversion uses `fractions.Fraction` internally (no float drift); cast to float only at output.
+- Exact rate: 1 blick = `(60 / bpm) / 705_600_000` seconds within each tempo segment.
+- Times are in `.svp` timeline, not the audio file's timeline. To match audio: add an offset constant via `--offset-sec`.
+
+## SV2 audio-render latency calibration
+
+The play+capture pipeline has a measurable startup latency between `Transport → Play` being clicked and SV2's audio engine producing the first sample. Empirically ~1.0 s (varies). To align the captured vocal with the FluidSynth-rendered backing:
+
+1. Capture WAV with N seconds of pre-roll (current default: 5 s).
+2. Use ffmpeg `silencedetect=noise=-45dB:d=0.05` to find `silence_end` of the leading silence — that's the actual first vocal sample time.
+3. Compute the expected first-vocal time from `export_timing.py` CSV row 0.
+4. Trim with `ffmpeg -ss <pre_roll + (actual - expected)>` instead of `-ss <pre_roll>`.
+
+A future cleanup: build this calibration step into `sv_play_capture.py` so the captured WAV always emerges with `t=0 == .svp t=0`.
+
 See also [[project-install-state]], [[project-vocal-synth-goal]].

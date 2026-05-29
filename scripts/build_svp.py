@@ -19,6 +19,110 @@ import uuid
 
 BLICKS_PER_QUARTER = 705_600_000
 
+# CMUdict vowel bases (ARPABET vowels carry stress digits like AA1, EH0)
+_VOWEL_BASES = {"AA","AE","AH","AO","AX","EH","ER","IH","IY","UH","UW","AW","AY","EY","OW","OY"}
+
+def _is_vowel(p):
+    return p.rstrip("012") in _VOWEL_BASES
+
+def _to_sv_phoneme(p):
+    """CMUdict ARPABET -> Synth V phoneme: lowercase + strip stress digit."""
+    return p.rstrip("012").lower()
+
+def _syllabify(phones):
+    """Split a phoneme list into syllables using Maximum Onset Principle.
+    Between two vowels with N intervening consonants:
+      N==0: split right after the first vowel.
+      N==1: the consonant becomes the onset of the next syllable.
+      N>=2: 1 consonant becomes the coda of the current syllable, the rest are
+            the onset of the next syllable.
+    The last syllable gets whatever consonants remain after the final vowel."""
+    vidx = [i for i, p in enumerate(phones) if _is_vowel(p)]
+    if not vidx:
+        return [phones]
+    out = []
+    prev = 0
+    for i, v in enumerate(vidx):
+        if i == len(vidx) - 1:
+            out.append(phones[prev:])
+        else:
+            n_cons = vidx[i + 1] - v - 1
+            if n_cons == 0:
+                cut = v + 1
+            elif n_cons == 1:
+                cut = v + 1
+            else:
+                cut = v + 2
+            out.append(phones[prev:cut])
+            prev = cut
+    return out
+
+
+def get_g2p():
+    """Lazy init the G2P engine. Returns a callable or None on import failure."""
+    try:
+        from g2p_en import G2p
+        return G2p()
+    except Exception as e:
+        print(f"WARN: g2p_en not available ({e}); phonemes will be left empty", file=sys.stderr)
+        return None
+
+
+_SV_VOWELS = {
+    "aa", "ae", "ah", "ao", "ax", "eh", "er", "ih", "iy", "uh", "uw",
+    "aw", "ay", "ey", "ow", "oy",
+}
+# Threshold in blicks for treating two consecutive notes as "joined" (no real
+# pause between them). 0.25 quarter note = 176_400_000 blicks. Below this the
+# consonant of the second note migrates into the previous note's coda; above it,
+# we treat the pause as a real rest and leave the onset where it is.
+_GAP_THRESHOLD_BLICKS = 176_400_000
+
+
+def apply_leading_consonant_fix(notes):
+    """NOA Hex (and likely most SV voices) tends to drop or de-voice the
+    onset consonant of a sung note, especially after a vowel coda. The fix
+    is to move the first phoneme of each note (if it's a consonant) to the
+    END of the previous note's phonemes, so the consonant is articulated
+    across the note boundary and sustained into the next syllable. Applies
+    only when the previous note's end touches the current note's onset
+    (or within ~1/16-note's worth of slack) — preserves intentional pauses.
+    """
+    for i in range(1, len(notes)):
+        phs = notes[i]["phonemes"].split() if notes[i]["phonemes"] else []
+        if not phs or phs[0] in _SV_VOWELS:
+            continue
+        prev = notes[i - 1]
+        gap = notes[i]["onset"] - (prev["onset"] + prev["duration"])
+        if gap > _GAP_THRESHOLD_BLICKS:
+            continue
+        moved = phs[0]
+        prev_ph = prev["phonemes"]
+        prev["phonemes"] = (prev_ph + " " + moved).strip() if prev_ph else moved
+        notes[i]["phonemes"] = " ".join(phs[1:])
+
+
+def word_phoneme_chunks(g2p, word, n_notes):
+    """Return a list of `n_notes` ARPABET-token-list chunks for `word`.
+    Uses CMUdict G2P + Maximum Onset syllabification; pads/merges chunks to
+    match n_notes."""
+    if g2p is None or not word:
+        return [[] for _ in range(n_notes)]
+    raw = [p for p in g2p(word) if p.isalpha() or p[:-1].isalpha()]
+    # Syllabify on raw uppercase+stress (so _is_vowel matches), then lowercase
+    raw_syllables = _syllabify(raw)
+    syllables = [[_to_sv_phoneme(p) for p in s] for s in raw_syllables]
+    n = len(syllables)
+    if n == n_notes:
+        return syllables
+    if n_notes == 1:
+        return [sum(syllables, [])]
+    if n < n_notes:
+        # extra notes: last syllable is held — emit empty for those (legato)
+        return syllables + [[] for _ in range(n_notes - n)]
+    # n > n_notes: merge trailing syllables into the last note
+    return syllables[: n_notes - 1] + [sum(syllables[n_notes - 1 :], [])]
+
 
 def new_uuid() -> str:
     return str(uuid.uuid4())
@@ -98,13 +202,8 @@ def build(extract_path, template_path, out_path, group_size=35):
 
     sung = [n for n in ext["notes"] if n["syllable"]]
 
-    # Group consecutive sung notes into words. A new word starts on a note whose
-    # `new_word` flag is True. Within a word, the first note's lyric is the WHOLE
-    # word (concatenated syllables, stripped+lowered). Continuation notes get
-    # the Synth V syllable-advance marker '+'. This drives Synth V's G2P to
-    # treat e.g. "for-est" as one word streamed across two notes instead of two
-    # independent words.
-    words = []  # list of [note_dict, ...]
+    # Group consecutive sung notes into words via the new_word marker.
+    words = []
     cur = []
     for n in sung:
         if n.get("new_word", False) and cur:
@@ -114,23 +213,28 @@ def build(extract_path, template_path, out_path, group_size=35):
     if cur:
         words.append(cur)
 
+    g2p = get_g2p()
+
     svp_notes = []
     for word_notes in words:
         whole = "".join(n["syllable"].strip().lower() for n in word_notes)
+        # Per-note ARPABET phoneme chunks via CMUdict + Maximum Onset Principle.
+        # This is the unambiguous control signal — bypasses any uncertainty about
+        # whether SV2 resolves '+' continuations at file-load time.
+        chunks = word_phoneme_chunks(g2p, whole, len(word_notes))
         for i, n in enumerate(word_notes):
-            lyric = whole if i == 0 else "+"
+            lyric = whole if i == 0 else "+"  # lyric kept for UI/display
+            phonemes_str = " ".join(chunks[i]) if chunks[i] else ""
             svp_notes.append({
                 "uuid": new_uuid(),
                 "musicalType": "singing",
                 "onset": n["onset_ticks"] * bpt,
                 "duration": n["dur_ticks"] * bpt,
                 "lyrics": lyric,
-                "phonemes": "",
+                "phonemes": phonemes_str,
                 "accent": "",
                 "pitch": n["pitch"],
                 "detune": 0,
-                # evenSyllableDuration=False since we're now controlling syllable
-                # placement explicitly via '+' per note, not splitting one note.
                 "attributes": {"evenSyllableDuration": False, "muted": False},
                 "takes": {
                     "activeTakeId": 0,
@@ -139,6 +243,9 @@ def build(extract_path, template_path, out_path, group_size=35):
                     ],
                 },
             })
+
+    # Second pass: NOA-Hex-style leading-consonant coda transfer
+    apply_leading_consonant_fix(svp_notes)
 
     # Tempos
     tempos = []

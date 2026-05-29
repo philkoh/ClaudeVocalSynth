@@ -8,6 +8,10 @@ soundfonts/
 
 # Generated audio: regenerate via the pipeline
 *.wav
+*.mp3
+
+# Generated CSV exports
+out/*.csv
 
 # Python caches
 __pycache__/

@@ -1,0 +1,10 @@
+{
+  "ticks_per_beat": 480,
+  "tempos": [[0, 500000]],
+  "n_notes": 2,
+  "n_paired_with_text": 2,
+  "notes": [
+    {"onset_ticks": 960,  "dur_ticks": 1440, "pitch": 60, "syllable": "sens", "new_word": true},
+    {"onset_ticks": 2400, "dur_ticks": 1440, "pitch": 59, "syllable": "es",   "new_word": false}
+  ]
+}
