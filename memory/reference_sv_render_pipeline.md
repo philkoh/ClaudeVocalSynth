@@ -35,13 +35,29 @@ How `sv_render.py` autonomously renders a vocal WAV from a generated `.svp`. Val
 - Bounce produces 2 WAVs per track: `<prefix>_Vocal_<trackname>.wav` and `<prefix>_MixDown.wav`. The prefix is `renderConfig.filename`.
 - After the first render in a session, the Bounce dialog skips the folder picker on subsequent runs — it remembers the prior location.
 
-## The trial-voice export mute (showstopper for autonomy)
+## The trial-voice export mute — and the loopback workaround
 
 After every Bounce to Files using a trial voice, SV2 pops a modal `Voice Trial Limits` dialog:
 
 > "One or more voices have a trial license. The tracks containing trial voices were muted for audio export."
 
-The exported WAV is correct duration and 705 kbit/s — but mean/max volume is `-91.0 dB` (digital silence). The dialog's sole button ("I understand") is informational; clicking it does NOT unlock audio. To get real audio out, the voice DB must be **purchased**. Once purchased, the same `sv_render.py` produces audible vocal.
+The exported WAV is correct duration and 705 kbit/s — but mean/max volume is `-91.0 dB` (digital silence). The dialog's sole button ("I understand") is informational; clicking it does NOT unlock audio.
+
+**The mute applies only to file export, NOT to in-editor playback.** Empirically verified 2026-05-28: starting Transport → Play and capturing the default speaker via Python `soundcard` library's WASAPI loopback (`get_microphone(default_speaker.name, include_loopback=True)`) yields real audio at peak ~0.6, mean ~-18 dB. No driver install, no virtual audio cable — just the built-in Windows loopback that any output device exposes.
+
+The play+capture script lives at `scripts/sv_play_capture.py` + `scripts/loopback_recorder.py` (the recorder is its own subprocess so its COM init doesn't fight with pywinauto's). Pipeline:
+
+1. Same load flow as `sv_render.py` (kill SV → clear recovery → File→Open the .svp → poll recovery).
+2. `Transport → Seek to the Beginning` via UIA menu click.
+3. Spawn the recorder subprocess with `--seconds total` (pre_roll + song_duration + post_roll).
+4. Sleep pre_roll.
+5. `Transport → Play` via UIA menu click. (Fallback: spacebar via `pywinauto.keyboard`.)
+6. `wait()` on the recorder subprocess; it writes the WAV when its timer expires.
+7. `taskkill /F /IM synthv-studio.exe`.
+
+The output WAV needs only `ffmpeg -ss <pre_roll>` to trim the leading silence; the song's natural intro is preserved so it aligns with the FluidSynth-rendered backing on a 1-to-1 timeline mix.
+
+This means **the trial restriction is no longer a blocker for fully-autonomous vocal generation.** Bounce-to-Files is still the right path once the voice is purchased (cleaner output, no risk of stray system sounds), but the loopback path proves the entire pipeline end-to-end on a free trial.
 
 ## Pipeline script flow (`scripts/sv_render.py`)
 
