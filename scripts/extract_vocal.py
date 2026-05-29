@@ -39,8 +39,13 @@ def collect_notes(track):
 
 
 def collect_syllables(track):
-    """Returns list of (tick, syllable_text) from text events, filtering @-metadata
-    and trailing / or \\ separators."""
+    """Returns list of (tick, syllable_text, new_word) from text events, filtering
+    @-metadata. Soft Karaoke word boundary rules:
+      - Leading '\\' marks new paragraph/verse (new word).
+      - Leading '/' marks new line (new word).
+      - Leading ' ' marks new word.
+      - Otherwise the chunk is a continuation syllable of the current word.
+    `new_word` collapses all three new-word signals into one bool."""
     out = []
     tick = 0
     for msg in track:
@@ -49,10 +54,10 @@ def collect_syllables(track):
             t = msg.text
             if not t or t.startswith("@"):
                 continue
-            # leading / or \ marks line/paragraph break; keep the syllable portion
-            stripped = t.lstrip("/\\")
+            new_word = bool(t and t[0] in ("\\", "/", " "))
+            stripped = t.lstrip("/\\ ")
             if stripped:
-                out.append((tick, stripped))
+                out.append((tick, stripped, new_word))
     return out
 
 
@@ -76,22 +81,29 @@ def main(path: str) -> None:
     # 1:1 pairing — walk both lists, consume each syllable at most once.
     tol = mid.ticks_per_beat // 4  # quarter-beat tolerance
     paired = [
-        {"onset_ticks": o, "dur_ticks": d, "pitch": p, "syllable": None}
+        {"onset_ticks": o, "dur_ticks": d, "pitch": p, "syllable": None, "new_word": False}
         for (o, d, p) in notes
     ]
     si = 0
     ni = 0
     while ni < len(paired) and si < len(sylls):
         note_onset = paired[ni]["onset_ticks"]
-        syl_tick, syl_text = sylls[si]
+        syl_tick, syl_text, syl_new_word = sylls[si]
         if syl_tick < note_onset - tol:
             si += 1  # stray syllable before this note
         elif note_onset < syl_tick - tol:
             ni += 1  # note before any syllable (melisma tail / instrumental)
         else:
             paired[ni]["syllable"] = syl_text
+            paired[ni]["new_word"] = syl_new_word
             si += 1
             ni += 1
+    # The very first sung note is always a new word (no boundary marker can come
+    # before it, but it's still a fresh start).
+    for n in paired:
+        if n["syllable"]:
+            n["new_word"] = True
+            break
 
     print(json.dumps({
         "ticks_per_beat": mid.ticks_per_beat,

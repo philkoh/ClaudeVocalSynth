@@ -1,4 +1,4 @@
-﻿{
+{
   "ticks_per_beat": 480,
   "tempos": [
     [
@@ -26,1561 +26,1871 @@
       "onset_ticks": 21120,
       "dur_ticks": 480,
       "pitch": 60,
-      "syllable": "You"
+      "syllable": "You",
+      "new_word": true
     },
     {
       "onset_ticks": 21600,
       "dur_ticks": 472,
       "pitch": 60,
-      "syllable": " fill"
+      "syllable": "fill",
+      "new_word": true
     },
     {
       "onset_ticks": 22080,
       "dur_ticks": 472,
       "pitch": 59,
-      "syllable": " up"
+      "syllable": "up",
+      "new_word": true
     },
     {
       "onset_ticks": 22560,
       "dur_ticks": 472,
       "pitch": 57,
-      "syllable": " my"
+      "syllable": "my",
+      "new_word": true
     },
     {
       "onset_ticks": 23040,
       "dur_ticks": 1432,
       "pitch": 60,
-      "syllable": " sens"
+      "syllable": "sens",
+      "new_word": true
     },
     {
       "onset_ticks": 24480,
       "dur_ticks": 1432,
       "pitch": 59,
-      "syllable": "es"
+      "syllable": "es",
+      "new_word": false
     },
     {
       "onset_ticks": 26880,
       "dur_ticks": 232,
       "pitch": 57,
-      "syllable": "Like"
+      "syllable": "Like",
+      "new_word": true
     },
     {
       "onset_ticks": 27120,
       "dur_ticks": 232,
       "pitch": 57,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 27360,
       "dur_ticks": 472,
       "pitch": 57,
-      "syllable": " night"
+      "syllable": "night",
+      "new_word": true
     },
     {
       "onset_ticks": 27840,
       "dur_ticks": 472,
       "pitch": 59,
-      "syllable": " in"
+      "syllable": "in",
+      "new_word": true
     },
     {
       "onset_ticks": 28320,
       "dur_ticks": 472,
       "pitch": 60,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 28752,
       "dur_ticks": 80,
       "pitch": 57,
-      "syllable": " for"
+      "syllable": "for",
+      "new_word": true
     },
     {
       "onset_ticks": 28800,
       "dur_ticks": 472,
       "pitch": 55,
-      "syllable": "est"
+      "syllable": "est",
+      "new_word": false
     },
     {
       "onset_ticks": 29280,
       "dur_ticks": 3000,
       "pitch": 52,
-      "syllable": null
+      "syllable": null,
+      "new_word": false
     },
     {
       "onset_ticks": 32640,
       "dur_ticks": 232,
       "pitch": 55,
-      "syllable": "Like"
+      "syllable": "Like",
+      "new_word": true
     },
     {
       "onset_ticks": 32880,
       "dur_ticks": 232,
       "pitch": 55,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 33120,
       "dur_ticks": 472,
       "pitch": 55,
-      "syllable": " moun"
+      "syllable": "moun",
+      "new_word": true
     },
     {
       "onset_ticks": 33600,
       "dur_ticks": 472,
       "pitch": 57,
-      "syllable": "tain"
+      "syllable": "tain",
+      "new_word": false
     },
     {
       "onset_ticks": 34080,
       "dur_ticks": 480,
       "pitch": 59,
-      "syllable": " in"
+      "syllable": "in",
+      "new_word": true
     },
     {
       "onset_ticks": 34560,
       "dur_ticks": 1432,
       "pitch": 60,
-      "syllable": " spring"
+      "syllable": "spring",
+      "new_word": true
     },
     {
       "onset_ticks": 36000,
       "dur_ticks": 1432,
       "pitch": 59,
-      "syllable": "time"
+      "syllable": "time",
+      "new_word": false
     },
     {
       "onset_ticks": 38400,
       "dur_ticks": 232,
       "pitch": 57,
-      "syllable": "Like"
+      "syllable": "Like",
+      "new_word": true
     },
     {
       "onset_ticks": 38640,
       "dur_ticks": 232,
       "pitch": 57,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 38880,
       "dur_ticks": 472,
       "pitch": 57,
-      "syllable": " walk"
+      "syllable": "walk",
+      "new_word": true
     },
     {
       "onset_ticks": 39360,
       "dur_ticks": 472,
       "pitch": 59,
-      "syllable": " in"
+      "syllable": "in",
+      "new_word": true
     },
     {
       "onset_ticks": 39840,
       "dur_ticks": 472,
       "pitch": 60,
-      "syllable": " the"
+      "syllable": "the",
+      "new_word": true
     },
     {
       "onset_ticks": 40320,
       "dur_ticks": 3352,
       "pitch": 59,
-      "syllable": " rain"
+      "syllable": "rain",
+      "new_word": true
     },
     {
       "onset_ticks": 44160,
       "dur_ticks": 232,
       "pitch": 60,
-      "syllable": "Like"
+      "syllable": "Like",
+      "new_word": true
     },
     {
       "onset_ticks": 44400,
       "dur_ticks": 232,
       "pitch": 60,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 44640,
       "dur_ticks": 472,
       "pitch": 60,
-      "syllable": " storm"
+      "syllable": "storm",
+      "new_word": true
     },
     {
       "onset_ticks": 45120,
       "dur_ticks": 472,
       "pitch": 59,
-      "syllable": " in"
+      "syllable": "in",
+      "new_word": true
     },
     {
       "onset_ticks": 45600,
       "dur_ticks": 472,
       "pitch": 57,
-      "syllable": " the"
+      "syllable": "the",
+      "new_word": true
     },
     {
       "onset_ticks": 46080,
       "dur_ticks": 1432,
       "pitch": 60,
-      "syllable": " de"
+      "syllable": "de",
+      "new_word": true
     },
     {
       "onset_ticks": 47520,
       "dur_ticks": 2280,
       "pitch": 59,
-      "syllable": "sert"
+      "syllable": "sert",
+      "new_word": false
     },
     {
       "onset_ticks": 49920,
       "dur_ticks": 232,
       "pitch": 57,
-      "syllable": "Like"
+      "syllable": "Like",
+      "new_word": true
     },
     {
       "onset_ticks": 50160,
       "dur_ticks": 232,
       "pitch": 57,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 50400,
       "dur_ticks": 472,
       "pitch": 57,
-      "syllable": " slee"
+      "syllable": "slee",
+      "new_word": true
     },
     {
       "onset_ticks": 50880,
       "dur_ticks": 472,
       "pitch": 59,
-      "syllable": "py"
+      "syllable": "py",
+      "new_word": false
     },
     {
       "onset_ticks": 51360,
       "dur_ticks": 472,
       "pitch": 60,
-      "syllable": " blue"
+      "syllable": "blue",
+      "new_word": true
     },
     {
       "onset_ticks": 51792,
       "dur_ticks": 80,
       "pitch": 57,
-      "syllable": " o"
+      "syllable": "o",
+      "new_word": true
     },
     {
       "onset_ticks": 51840,
       "dur_ticks": 472,
       "pitch": 55,
-      "syllable": "cean"
+      "syllable": "cean",
+      "new_word": false
     },
     {
       "onset_ticks": 52320,
       "dur_ticks": 2872,
       "pitch": 52,
-      "syllable": null
+      "syllable": null,
+      "new_word": false
     },
     {
       "onset_ticks": 55680,
       "dur_ticks": 424,
       "pitch": 55,
-      "syllable": "You"
+      "syllable": "You",
+      "new_word": true
     },
     {
       "onset_ticks": 56160,
       "dur_ticks": 480,
       "pitch": 55,
-      "syllable": " fill"
+      "syllable": "fill",
+      "new_word": true
     },
     {
       "onset_ticks": 56640,
       "dur_ticks": 480,
       "pitch": 57,
-      "syllable": " up"
+      "syllable": "up",
+      "new_word": true
     },
     {
       "onset_ticks": 57120,
       "dur_ticks": 480,
       "pitch": 59,
-      "syllable": " my"
+      "syllable": "my",
+      "new_word": true
     },
     {
       "onset_ticks": 57600,
       "dur_ticks": 1440,
       "pitch": 60,
-      "syllable": " sens"
+      "syllable": "sens",
+      "new_word": true
     },
     {
       "onset_ticks": 59040,
       "dur_ticks": 1440,
       "pitch": 59,
-      "syllable": "es"
+      "syllable": "es",
+      "new_word": false
     },
     {
       "onset_ticks": 61440,
       "dur_ticks": 472,
       "pitch": 57,
-      "syllable": "Come"
+      "syllable": "Come",
+      "new_word": true
     },
     {
       "onset_ticks": 61920,
       "dur_ticks": 472,
       "pitch": 59,
-      "syllable": " fill"
+      "syllable": "fill",
+      "new_word": true
     },
     {
       "onset_ticks": 62400,
       "dur_ticks": 600,
       "pitch": 60,
-      "syllable": " me"
+      "syllable": "me",
+      "new_word": true
     },
     {
       "onset_ticks": 63120,
       "dur_ticks": 240,
       "pitch": 62,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 63360,
       "dur_ticks": 3352,
       "pitch": 60,
-      "syllable": "gain"
+      "syllable": "gain",
+      "new_word": false
     },
     {
       "onset_ticks": 72960,
       "dur_ticks": 480,
       "pitch": 72,
-      "syllable": "Come"
+      "syllable": "Come",
+      "new_word": true
     },
     {
       "onset_ticks": 73440,
       "dur_ticks": 472,
       "pitch": 72,
-      "syllable": " let"
+      "syllable": "let",
+      "new_word": true
     },
     {
       "onset_ticks": 73920,
       "dur_ticks": 472,
       "pitch": 71,
-      "syllable": " me"
+      "syllable": "me",
+      "new_word": true
     },
     {
       "onset_ticks": 74400,
       "dur_ticks": 472,
       "pitch": 69,
-      "syllable": " love"
+      "syllable": "love",
+      "new_word": true
     },
     {
       "onset_ticks": 74880,
       "dur_ticks": 1432,
       "pitch": 72,
-      "syllable": " you"
+      "syllable": "you",
+      "new_word": true
     },
     {
       "onset_ticks": 76320,
       "dur_ticks": 1432,
       "pitch": 71,
-      "syllable": null
+      "syllable": null,
+      "new_word": false
     },
     {
       "onset_ticks": 78720,
       "dur_ticks": 232,
       "pitch": 69,
-      "syllable": "Let"
+      "syllable": "Let",
+      "new_word": true
     },
     {
       "onset_ticks": 78960,
       "dur_ticks": 232,
       "pitch": 69,
-      "syllable": " me"
+      "syllable": "me",
+      "new_word": true
     },
     {
       "onset_ticks": 79200,
       "dur_ticks": 472,
       "pitch": 69,
-      "syllable": " give"
+      "syllable": "give",
+      "new_word": true
     },
     {
       "onset_ticks": 79680,
       "dur_ticks": 472,
       "pitch": 71,
-      "syllable": " my"
+      "syllable": "my",
+      "new_word": true
     },
     {
       "onset_ticks": 80160,
       "dur_ticks": 472,
       "pitch": 72,
-      "syllable": " life"
+      "syllable": "life",
+      "new_word": true
     },
     {
       "onset_ticks": 80592,
       "dur_ticks": 80,
       "pitch": 69,
-      "syllable": " to"
+      "syllable": "to",
+      "new_word": true
     },
     {
       "onset_ticks": 80640,
       "dur_ticks": 472,
       "pitch": 67,
-      "syllable": " you"
+      "syllable": "you",
+      "new_word": true
     },
     {
       "onset_ticks": 81120,
       "dur_ticks": 3000,
       "pitch": 64,
-      "syllable": null
+      "syllable": null,
+      "new_word": false
     },
     {
       "onset_ticks": 84480,
       "dur_ticks": 232,
       "pitch": 67,
-      "syllable": "Let"
+      "syllable": "Let",
+      "new_word": true
     },
     {
       "onset_ticks": 84720,
       "dur_ticks": 232,
       "pitch": 67,
-      "syllable": " me"
+      "syllable": "me",
+      "new_word": true
     },
     {
       "onset_ticks": 84960,
       "dur_ticks": 472,
       "pitch": 67,
-      "syllable": " drown"
+      "syllable": "drown",
+      "new_word": true
     },
     {
       "onset_ticks": 85440,
       "dur_ticks": 472,
       "pitch": 69,
-      "syllable": " in"
+      "syllable": "in",
+      "new_word": true
     },
     {
       "onset_ticks": 85920,
       "dur_ticks": 480,
       "pitch": 71,
-      "syllable": " your"
+      "syllable": "your",
+      "new_word": true
     },
     {
       "onset_ticks": 86400,
       "dur_ticks": 1432,
       "pitch": 72,
-      "syllable": " laugh"
+      "syllable": "laugh",
+      "new_word": true
     },
     {
       "onset_ticks": 87840,
       "dur_ticks": 1432,
       "pitch": 71,
-      "syllable": "ter"
+      "syllable": "ter",
+      "new_word": false
     },
     {
       "onset_ticks": 90240,
       "dur_ticks": 232,
       "pitch": 69,
-      "syllable": "Let"
+      "syllable": "Let",
+      "new_word": true
     },
     {
       "onset_ticks": 90480,
       "dur_ticks": 232,
       "pitch": 69,
-      "syllable": " me"
+      "syllable": "me",
+      "new_word": true
     },
     {
       "onset_ticks": 90720,
       "dur_ticks": 472,
       "pitch": 69,
-      "syllable": " die"
+      "syllable": "die",
+      "new_word": true
     },
     {
       "onset_ticks": 91200,
       "dur_ticks": 472,
       "pitch": 71,
-      "syllable": " in"
+      "syllable": "in",
+      "new_word": true
     },
     {
       "onset_ticks": 91680,
       "dur_ticks": 472,
       "pitch": 72,
-      "syllable": " your"
+      "syllable": "your",
+      "new_word": true
     },
     {
       "onset_ticks": 92160,
       "dur_ticks": 3352,
       "pitch": 71,
-      "syllable": " arms"
+      "syllable": "arms",
+      "new_word": true
     },
     {
       "onset_ticks": 96000,
       "dur_ticks": 232,
       "pitch": 72,
-      "syllable": "Let"
+      "syllable": "Let",
+      "new_word": true
     },
     {
       "onset_ticks": 96240,
       "dur_ticks": 232,
       "pitch": 72,
-      "syllable": " me"
+      "syllable": "me",
+      "new_word": true
     },
     {
       "onset_ticks": 96480,
       "dur_ticks": 472,
       "pitch": 72,
-      "syllable": " lay"
+      "syllable": "lay",
+      "new_word": true
     },
     {
       "onset_ticks": 96960,
       "dur_ticks": 472,
       "pitch": 71,
-      "syllable": " down"
+      "syllable": "down",
+      "new_word": true
     },
     {
       "onset_ticks": 97440,
       "dur_ticks": 472,
       "pitch": 69,
-      "syllable": " be"
+      "syllable": "be",
+      "new_word": true
     },
     {
       "onset_ticks": 97920,
       "dur_ticks": 1432,
       "pitch": 72,
-      "syllable": "side"
+      "syllable": "side",
+      "new_word": false
     },
     {
       "onset_ticks": 99360,
       "dur_ticks": 2280,
       "pitch": 71,
-      "syllable": " you"
+      "syllable": "you",
+      "new_word": true
     },
     {
       "onset_ticks": 101760,
       "dur_ticks": 232,
       "pitch": 69,
-      "syllable": null
+      "syllable": null,
+      "new_word": false
     },
     {
       "onset_ticks": 102000,
       "dur_ticks": 232,
       "pitch": 69,
-      "syllable": "Let"
+      "syllable": "Let",
+      "new_word": true
     },
     {
       "onset_ticks": 102240,
       "dur_ticks": 472,
       "pitch": 69,
-      "syllable": " me"
+      "syllable": "me",
+      "new_word": true
     },
     {
       "onset_ticks": 102720,
       "dur_ticks": 472,
       "pitch": 71,
-      "syllable": " al"
+      "syllable": "al",
+      "new_word": true
     },
     {
       "onset_ticks": 103200,
       "dur_ticks": 472,
       "pitch": 72,
-      "syllable": "ways"
+      "syllable": "ways",
+      "new_word": false
     },
     {
       "onset_ticks": 103632,
       "dur_ticks": 80,
       "pitch": 69,
-      "syllable": " be"
+      "syllable": "be",
+      "new_word": true
     },
     {
       "onset_ticks": 103680,
       "dur_ticks": 472,
       "pitch": 67,
-      "syllable": " with"
+      "syllable": "with",
+      "new_word": true
     },
     {
       "onset_ticks": 104160,
       "dur_ticks": 2872,
       "pitch": 64,
-      "syllable": " you"
+      "syllable": "you",
+      "new_word": true
     },
     {
       "onset_ticks": 107520,
       "dur_ticks": 424,
       "pitch": 67,
-      "syllable": null
+      "syllable": null,
+      "new_word": false
     },
     {
       "onset_ticks": 108000,
       "dur_ticks": 480,
       "pitch": 67,
-      "syllable": "Come"
+      "syllable": "Come",
+      "new_word": true
     },
     {
       "onset_ticks": 108480,
       "dur_ticks": 480,
       "pitch": 69,
-      "syllable": " let"
+      "syllable": "let",
+      "new_word": true
     },
     {
       "onset_ticks": 108960,
       "dur_ticks": 480,
       "pitch": 71,
-      "syllable": " me"
+      "syllable": "me",
+      "new_word": true
     },
     {
       "onset_ticks": 109440,
       "dur_ticks": 1440,
       "pitch": 72,
-      "syllable": " love"
+      "syllable": "love",
+      "new_word": true
     },
     {
       "onset_ticks": 110880,
       "dur_ticks": 1440,
       "pitch": 71,
-      "syllable": " you"
+      "syllable": "you",
+      "new_word": true
     },
     {
       "onset_ticks": 113280,
       "dur_ticks": 472,
       "pitch": 69,
-      "syllable": "Come"
+      "syllable": "Come",
+      "new_word": true
     },
     {
       "onset_ticks": 113760,
       "dur_ticks": 472,
       "pitch": 71,
-      "syllable": " love"
+      "syllable": "love",
+      "new_word": true
     },
     {
       "onset_ticks": 114240,
       "dur_ticks": 600,
       "pitch": 72,
-      "syllable": " me"
+      "syllable": "me",
+      "new_word": true
     },
     {
       "onset_ticks": 114960,
       "dur_ticks": 240,
       "pitch": 74,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 115200,
       "dur_ticks": 3352,
       "pitch": 72,
-      "syllable": "gain"
+      "syllable": "gain",
+      "new_word": false
     },
     {
       "onset_ticks": 124800,
       "dur_ticks": 480,
       "pitch": 74,
-      "syllable": "You"
+      "syllable": "You",
+      "new_word": true
     },
     {
       "onset_ticks": 125280,
       "dur_ticks": 472,
       "pitch": 74,
-      "syllable": " fill"
+      "syllable": "fill",
+      "new_word": true
     },
     {
       "onset_ticks": 125760,
       "dur_ticks": 472,
       "pitch": 73,
-      "syllable": " up"
+      "syllable": "up",
+      "new_word": true
     },
     {
       "onset_ticks": 126240,
       "dur_ticks": 472,
       "pitch": 71,
-      "syllable": " my"
+      "syllable": "my",
+      "new_word": true
     },
     {
       "onset_ticks": 126720,
       "dur_ticks": 1432,
       "pitch": 74,
-      "syllable": " sens"
+      "syllable": "sens",
+      "new_word": true
     },
     {
       "onset_ticks": 128160,
       "dur_ticks": 1432,
       "pitch": 73,
-      "syllable": "es"
+      "syllable": "es",
+      "new_word": false
     },
     {
       "onset_ticks": 130560,
       "dur_ticks": 232,
       "pitch": 71,
-      "syllable": "Like"
+      "syllable": "Like",
+      "new_word": true
     },
     {
       "onset_ticks": 130800,
       "dur_ticks": 232,
       "pitch": 71,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 131040,
       "dur_ticks": 472,
       "pitch": 71,
-      "syllable": " night"
+      "syllable": "night",
+      "new_word": true
     },
     {
       "onset_ticks": 131520,
       "dur_ticks": 472,
       "pitch": 73,
-      "syllable": " in"
+      "syllable": "in",
+      "new_word": true
     },
     {
       "onset_ticks": 132000,
       "dur_ticks": 472,
       "pitch": 74,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 132432,
       "dur_ticks": 80,
       "pitch": 71,
-      "syllable": " for"
+      "syllable": "for",
+      "new_word": true
     },
     {
       "onset_ticks": 132480,
       "dur_ticks": 472,
       "pitch": 69,
-      "syllable": "est"
+      "syllable": "est",
+      "new_word": false
     },
     {
       "onset_ticks": 132960,
       "dur_ticks": 3000,
       "pitch": 66,
-      "syllable": null
+      "syllable": null,
+      "new_word": false
     },
     {
       "onset_ticks": 136320,
       "dur_ticks": 232,
       "pitch": 69,
-      "syllable": "Like"
+      "syllable": "Like",
+      "new_word": true
     },
     {
       "onset_ticks": 136560,
       "dur_ticks": 232,
       "pitch": 69,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 136800,
       "dur_ticks": 472,
       "pitch": 69,
-      "syllable": " moun"
+      "syllable": "moun",
+      "new_word": true
     },
     {
       "onset_ticks": 137280,
       "dur_ticks": 472,
       "pitch": 71,
-      "syllable": "tain"
+      "syllable": "tain",
+      "new_word": false
     },
     {
       "onset_ticks": 137760,
       "dur_ticks": 480,
       "pitch": 73,
-      "syllable": " in"
+      "syllable": "in",
+      "new_word": true
     },
     {
       "onset_ticks": 138240,
       "dur_ticks": 1432,
       "pitch": 74,
-      "syllable": " spring"
+      "syllable": "spring",
+      "new_word": true
     },
     {
       "onset_ticks": 139680,
       "dur_ticks": 1432,
       "pitch": 73,
-      "syllable": "time"
+      "syllable": "time",
+      "new_word": false
     },
     {
       "onset_ticks": 142080,
       "dur_ticks": 232,
       "pitch": 71,
-      "syllable": "Like"
+      "syllable": "Like",
+      "new_word": true
     },
     {
       "onset_ticks": 142320,
       "dur_ticks": 232,
       "pitch": 71,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 142560,
       "dur_ticks": 472,
       "pitch": 71,
-      "syllable": " walk"
+      "syllable": "walk",
+      "new_word": true
     },
     {
       "onset_ticks": 143040,
       "dur_ticks": 472,
       "pitch": 73,
-      "syllable": " in"
+      "syllable": "in",
+      "new_word": true
     },
     {
       "onset_ticks": 143520,
       "dur_ticks": 472,
       "pitch": 74,
-      "syllable": " the"
+      "syllable": "the",
+      "new_word": true
     },
     {
       "onset_ticks": 144000,
       "dur_ticks": 3352,
       "pitch": 73,
-      "syllable": " rain"
+      "syllable": "rain",
+      "new_word": true
     },
     {
       "onset_ticks": 147840,
       "dur_ticks": 232,
       "pitch": 74,
-      "syllable": "Like"
+      "syllable": "Like",
+      "new_word": true
     },
     {
       "onset_ticks": 148080,
       "dur_ticks": 232,
       "pitch": 74,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 148320,
       "dur_ticks": 472,
       "pitch": 74,
-      "syllable": " storm"
+      "syllable": "storm",
+      "new_word": true
     },
     {
       "onset_ticks": 148800,
       "dur_ticks": 472,
       "pitch": 73,
-      "syllable": " in"
+      "syllable": "in",
+      "new_word": true
     },
     {
       "onset_ticks": 149280,
       "dur_ticks": 472,
       "pitch": 71,
-      "syllable": " the"
+      "syllable": "the",
+      "new_word": true
     },
     {
       "onset_ticks": 149760,
       "dur_ticks": 1432,
       "pitch": 74,
-      "syllable": " de"
+      "syllable": "de",
+      "new_word": true
     },
     {
       "onset_ticks": 151200,
       "dur_ticks": 2280,
       "pitch": 76,
-      "syllable": "sert"
+      "syllable": "sert",
+      "new_word": false
     },
     {
       "onset_ticks": 153600,
       "dur_ticks": 232,
       "pitch": 71,
-      "syllable": "Like"
+      "syllable": "Like",
+      "new_word": true
     },
     {
       "onset_ticks": 153840,
       "dur_ticks": 232,
       "pitch": 71,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 154080,
       "dur_ticks": 472,
       "pitch": 71,
-      "syllable": " slee"
+      "syllable": "slee",
+      "new_word": true
     },
     {
       "onset_ticks": 154560,
       "dur_ticks": 472,
       "pitch": 73,
-      "syllable": "py"
+      "syllable": "py",
+      "new_word": false
     },
     {
       "onset_ticks": 155040,
       "dur_ticks": 472,
       "pitch": 74,
-      "syllable": " blue"
+      "syllable": "blue",
+      "new_word": true
     },
     {
       "onset_ticks": 155472,
       "dur_ticks": 80,
       "pitch": 71,
-      "syllable": " o"
+      "syllable": "o",
+      "new_word": true
     },
     {
       "onset_ticks": 155520,
       "dur_ticks": 472,
       "pitch": 69,
-      "syllable": "cean"
+      "syllable": "cean",
+      "new_word": false
     },
     {
       "onset_ticks": 156000,
       "dur_ticks": 2872,
       "pitch": 66,
-      "syllable": null
+      "syllable": null,
+      "new_word": false
     },
     {
       "onset_ticks": 159360,
       "dur_ticks": 424,
       "pitch": 69,
-      "syllable": "You"
+      "syllable": "You",
+      "new_word": true
     },
     {
       "onset_ticks": 159840,
       "dur_ticks": 480,
       "pitch": 69,
-      "syllable": " fill"
+      "syllable": "fill",
+      "new_word": true
     },
     {
       "onset_ticks": 160320,
       "dur_ticks": 480,
       "pitch": 71,
-      "syllable": " up"
+      "syllable": "up",
+      "new_word": true
     },
     {
       "onset_ticks": 160800,
       "dur_ticks": 480,
       "pitch": 73,
-      "syllable": " my"
+      "syllable": "my",
+      "new_word": true
     },
     {
       "onset_ticks": 161280,
       "dur_ticks": 1440,
       "pitch": 74,
-      "syllable": " sens"
+      "syllable": "sens",
+      "new_word": true
     },
     {
       "onset_ticks": 162720,
       "dur_ticks": 1440,
       "pitch": 73,
-      "syllable": "es"
+      "syllable": "es",
+      "new_word": false
     },
     {
       "onset_ticks": 165120,
       "dur_ticks": 472,
       "pitch": 71,
-      "syllable": "Come"
+      "syllable": "Come",
+      "new_word": true
     },
     {
       "onset_ticks": 165600,
       "dur_ticks": 472,
       "pitch": 73,
-      "syllable": " fill"
+      "syllable": "fill",
+      "new_word": true
     },
     {
       "onset_ticks": 166080,
       "dur_ticks": 600,
       "pitch": 74,
-      "syllable": " me"
+      "syllable": "me",
+      "new_word": true
     },
     {
       "onset_ticks": 166800,
       "dur_ticks": 240,
       "pitch": 76,
-      "syllable": " a"
+      "syllable": "a",
+      "new_word": true
     },
     {
       "onset_ticks": 167040,
       "dur_ticks": 3352,
       "pitch": 74,
-      "syllable": "gain"
+      "syllable": "gain",
+      "new_word": false
     }
   ],
   "raw_syllables": [
     [
       21120,
-      "You"
+      "You",
+      true
     ],
     [
       21600,
-      " fill"
+      "fill",
+      true
     ],
     [
       22080,
-      " up"
+      "up",
+      true
     ],
     [
       22560,
-      " my"
+      "my",
+      true
     ],
     [
       23040,
-      " sens"
+      "sens",
+      true
     ],
     [
       24480,
-      "es"
+      "es",
+      false
     ],
     [
       26880,
-      "Like"
+      "Like",
+      true
     ],
     [
       27120,
-      " a"
+      "a",
+      true
     ],
     [
       27360,
-      " night"
+      "night",
+      true
     ],
     [
       27840,
-      " in"
+      "in",
+      true
     ],
     [
       28320,
-      " a"
+      "a",
+      true
     ],
     [
       28752,
-      " for"
+      "for",
+      true
     ],
     [
       28800,
-      "est"
+      "est",
+      false
     ],
     [
       32640,
-      "Like"
+      "Like",
+      true
     ],
     [
       32880,
-      " a"
+      "a",
+      true
     ],
     [
       33120,
-      " moun"
+      "moun",
+      true
     ],
     [
       33600,
-      "tain"
+      "tain",
+      false
     ],
     [
       34080,
-      " in"
+      "in",
+      true
     ],
     [
       34560,
-      " spring"
+      "spring",
+      true
     ],
     [
       36000,
-      "time"
+      "time",
+      false
     ],
     [
       38400,
-      "Like"
+      "Like",
+      true
     ],
     [
       38640,
-      " a"
+      "a",
+      true
     ],
     [
       38880,
-      " walk"
+      "walk",
+      true
     ],
     [
       39360,
-      " in"
+      "in",
+      true
     ],
     [
       39840,
-      " the"
+      "the",
+      true
     ],
     [
       40320,
-      " rain"
+      "rain",
+      true
     ],
     [
       44160,
-      "Like"
+      "Like",
+      true
     ],
     [
       44400,
-      " a"
+      "a",
+      true
     ],
     [
       44640,
-      " storm"
+      "storm",
+      true
     ],
     [
       45120,
-      " in"
+      "in",
+      true
     ],
     [
       45600,
-      " the"
+      "the",
+      true
     ],
     [
       46080,
-      " de"
+      "de",
+      true
     ],
     [
       47520,
-      "sert"
+      "sert",
+      false
     ],
     [
       49920,
-      "Like"
+      "Like",
+      true
     ],
     [
       50160,
-      " a"
+      "a",
+      true
     ],
     [
       50400,
-      " slee"
+      "slee",
+      true
     ],
     [
       50880,
-      "py"
+      "py",
+      false
     ],
     [
       51360,
-      " blue"
+      "blue",
+      true
     ],
     [
       51792,
-      " o"
+      "o",
+      true
     ],
     [
       51840,
-      "cean"
+      "cean",
+      false
     ],
     [
       55680,
-      "You"
+      "You",
+      true
     ],
     [
       56160,
-      " fill"
+      "fill",
+      true
     ],
     [
       56640,
-      " up"
+      "up",
+      true
     ],
     [
       57120,
-      " my"
+      "my",
+      true
     ],
     [
       57600,
-      " sens"
+      "sens",
+      true
     ],
     [
       59040,
-      "es"
+      "es",
+      false
     ],
     [
       61440,
-      "Come"
+      "Come",
+      true
     ],
     [
       61920,
-      " fill"
+      "fill",
+      true
     ],
     [
       62400,
-      " me"
+      "me",
+      true
     ],
     [
       63120,
-      " a"
+      "a",
+      true
     ],
     [
       63360,
-      "gain"
+      "gain",
+      false
     ],
     [
       72960,
-      "Come"
+      "Come",
+      true
     ],
     [
       73440,
-      " let"
+      "let",
+      true
     ],
     [
       73920,
-      " me"
+      "me",
+      true
     ],
     [
       74400,
-      " love"
+      "love",
+      true
     ],
     [
       74880,
-      " you"
+      "you",
+      true
     ],
     [
       78720,
-      "Let"
+      "Let",
+      true
     ],
     [
       78960,
-      " me"
+      "me",
+      true
     ],
     [
       79200,
-      " give"
+      "give",
+      true
     ],
     [
       79680,
-      " my"
+      "my",
+      true
     ],
     [
       80160,
-      " life"
+      "life",
+      true
     ],
     [
       80592,
-      " to"
+      "to",
+      true
     ],
     [
       80640,
-      " you"
+      "you",
+      true
     ],
     [
       84480,
-      "Let"
+      "Let",
+      true
     ],
     [
       84720,
-      " me"
+      "me",
+      true
     ],
     [
       84960,
-      " drown"
+      "drown",
+      true
     ],
     [
       85440,
-      " in"
+      "in",
+      true
     ],
     [
       85920,
-      " your"
+      "your",
+      true
     ],
     [
       86400,
-      " laugh"
+      "laugh",
+      true
     ],
     [
       87840,
-      "ter"
+      "ter",
+      false
     ],
     [
       90240,
-      "Let"
+      "Let",
+      true
     ],
     [
       90480,
-      " me"
+      "me",
+      true
     ],
     [
       90720,
-      " die"
+      "die",
+      true
     ],
     [
       91200,
-      " in"
+      "in",
+      true
     ],
     [
       91680,
-      " your"
+      "your",
+      true
     ],
     [
       92160,
-      " arms"
+      "arms",
+      true
     ],
     [
       96000,
-      "Let"
+      "Let",
+      true
     ],
     [
       96240,
-      " me"
+      "me",
+      true
     ],
     [
       96480,
-      " lay"
+      "lay",
+      true
     ],
     [
       96960,
-      " down"
+      "down",
+      true
     ],
     [
       97440,
-      " be"
+      "be",
+      true
     ],
     [
       97920,
-      "side"
+      "side",
+      false
     ],
     [
       99360,
-      " you"
+      "you",
+      true
     ],
     [
       102000,
-      "Let"
+      "Let",
+      true
     ],
     [
       102240,
-      " me"
+      "me",
+      true
     ],
     [
       102720,
-      " al"
+      "al",
+      true
     ],
     [
       103200,
-      "ways"
+      "ways",
+      false
     ],
     [
       103632,
-      " be"
+      "be",
+      true
     ],
     [
       103680,
-      " with"
+      "with",
+      true
     ],
     [
       104160,
-      " you"
+      "you",
+      true
     ],
     [
       108000,
-      "Come"
+      "Come",
+      true
     ],
     [
       108480,
-      " let"
+      "let",
+      true
     ],
     [
       108960,
-      " me"
+      "me",
+      true
     ],
     [
       109440,
-      " love"
+      "love",
+      true
     ],
     [
       110880,
-      " you"
+      "you",
+      true
     ],
     [
       113280,
-      "Come"
+      "Come",
+      true
     ],
     [
       113760,
-      " love"
+      "love",
+      true
     ],
     [
       114240,
-      " me"
+      "me",
+      true
     ],
     [
       114960,
-      " a"
+      "a",
+      true
     ],
     [
       115200,
-      "gain"
+      "gain",
+      false
     ],
     [
       124800,
-      "You"
+      "You",
+      true
     ],
     [
       125280,
-      " fill"
+      "fill",
+      true
     ],
     [
       125760,
-      " up"
+      "up",
+      true
     ],
     [
       126240,
-      " my"
+      "my",
+      true
     ],
     [
       126720,
-      " sens"
+      "sens",
+      true
     ],
     [
       128160,
-      "es"
+      "es",
+      false
     ],
     [
       130560,
-      "Like"
+      "Like",
+      true
     ],
     [
       130800,
-      " a"
+      "a",
+      true
     ],
     [
       131040,
-      " night"
+      "night",
+      true
     ],
     [
       131520,
-      " in"
+      "in",
+      true
     ],
     [
       132000,
-      " a"
+      "a",
+      true
     ],
     [
       132432,
-      " for"
+      "for",
+      true
     ],
     [
       132480,
-      "est"
+      "est",
+      false
     ],
     [
       136320,
-      "Like"
+      "Like",
+      true
     ],
     [
       136560,
-      " a"
+      "a",
+      true
     ],
     [
       136800,
-      " moun"
+      "moun",
+      true
     ],
     [
       137280,
-      "tain"
+      "tain",
+      false
     ],
     [
       137760,
-      " in"
+      "in",
+      true
     ],
     [
       138240,
-      " spring"
+      "spring",
+      true
     ],
     [
       139680,
-      "time"
+      "time",
+      false
     ],
     [
       142080,
-      "Like"
+      "Like",
+      true
     ],
     [
       142320,
-      " a"
+      "a",
+      true
     ],
     [
       142560,
-      " walk"
+      "walk",
+      true
     ],
     [
       143040,
-      " in"
+      "in",
+      true
     ],
     [
       143520,
-      " the"
+      "the",
+      true
     ],
     [
       144000,
-      " rain"
+      "rain",
+      true
     ],
     [
       147840,
-      "Like"
+      "Like",
+      true
     ],
     [
       148080,
-      " a"
+      "a",
+      true
     ],
     [
       148320,
-      " storm"
+      "storm",
+      true
     ],
     [
       148800,
-      " in"
+      "in",
+      true
     ],
     [
       149280,
-      " the"
+      "the",
+      true
     ],
     [
       149760,
-      " de"
+      "de",
+      true
     ],
     [
       151200,
-      "sert"
+      "sert",
+      false
     ],
     [
       153600,
-      "Like"
+      "Like",
+      true
     ],
     [
       153840,
-      " a"
+      "a",
+      true
     ],
     [
       154080,
-      " slee"
+      "slee",
+      true
     ],
     [
       154560,
-      "py"
+      "py",
+      false
     ],
     [
       155040,
-      " blue"
+      "blue",
+      true
     ],
     [
       155472,
-      " o"
+      "o",
+      true
     ],
     [
       155520,
-      "cean"
+      "cean",
+      false
     ],
     [
       159360,
-      "You"
+      "You",
+      true
     ],
     [
       159840,
-      " fill"
+      "fill",
+      true
     ],
     [
       160320,
-      " up"
+      "up",
+      true
     ],
     [
       160800,
-      " my"
+      "my",
+      true
     ],
     [
       161280,
-      " sens"
+      "sens",
+      true
     ],
     [
       162720,
-      "es"
+      "es",
+      false
     ],
     [
       165120,
-      "Come"
+      "Come",
+      true
     ],
     [
       165600,
-      " fill"
+      "fill",
+      true
     ],
     [
       166080,
-      " me"
+      "me",
+      true
     ],
     [
       166800,
-      " a"
+      "a",
+      true
     ],
     [
       167040,
-      "gain"
+      "gain",
+      false
     ]
   ]
 }

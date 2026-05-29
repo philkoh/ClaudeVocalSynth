@@ -138,14 +138,27 @@ def type_path_into_open_dialog(dlg_hwnd, path):
     return True
 
 
-def start_loopback_subprocess(out_wav, seconds):
+def sv_audio_output_device():
+    """Read SV2's settings.xml to find which speaker SV2 is configured to play to.
+    Returns a substring of the device name (or None if not found)."""
+    settings = pathlib.Path(os.environ["APPDATA"]) / "Dreamtonics" / "Synthesizer V Studio 2" / "settings" / "settings.xml"
+    if not settings.exists():
+        return None
+    import re
+    text = settings.read_text(encoding="utf-8")
+    # The XML embeds an escaped inner XML chunk; look for audioOutputDeviceName=...
+    m = re.search(r'audioOutputDeviceName=(?:&quot;|")([^&"]+?)(?:&quot;|")', text)
+    return m.group(1) if m else None
+
+
+def start_loopback_subprocess(out_wav, seconds, device=None):
     """Spawn the standalone loopback recorder so it gets a clean COM context."""
     py = r"C:\Users\User\AppData\Local\Programs\Python\Python312\python.exe"
-    return subprocess.Popen(
-        [py, r"C:\ClaudeVocalSynth\scripts\loopback_recorder.py",
-         "--out", out_wav, "--seconds", str(seconds), "--sr", str(SR)],
-        stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
-    )
+    cmd = [py, r"C:\ClaudeVocalSynth\scripts\loopback_recorder.py",
+           "--out", out_wav, "--seconds", str(seconds), "--sr", str(SR)]
+    if device:
+        cmd += ["--device", device]
+    return subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
 
 
 def main():
@@ -214,8 +227,10 @@ def main():
     time.sleep(1)
 
     total_record = args.pre_roll + args.duration + args.post_roll
+    sv_dev = sv_audio_output_device()
+    log(f"SV2 audio output device (from settings.xml): {sv_dev!r}")
     log(f"Spawn loopback recorder subprocess: {total_record:.1f}s total")
-    rec_proc = start_loopback_subprocess(args.wav, total_record)
+    rec_proc = start_loopback_subprocess(args.wav, total_record, device=sv_dev)
     rec_started = time.time()
     time.sleep(args.pre_roll)
 

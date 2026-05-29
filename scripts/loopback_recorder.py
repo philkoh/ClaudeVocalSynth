@@ -15,11 +15,23 @@ def main():
     ap.add_argument("--out", required=True, help="Output WAV file")
     ap.add_argument("--seconds", type=float, required=True, help="Total recording duration")
     ap.add_argument("--sr", type=int, default=44100)
+    ap.add_argument("--device", default=None,
+                    help="Substring of the loopback device name; default = Windows default speaker")
     args = ap.parse_args()
 
-    spk = sc.default_speaker()
-    mic = sc.get_microphone(spk.name, include_loopback=True)
-    print(f"[rec] loopback from {spk.name!r} for {args.seconds:.1f}s", flush=True)
+    if args.device:
+        match = [m for m in sc.all_microphones(include_loopback=True)
+                 if args.device.lower() in m.name.lower()]
+        if not match:
+            avail = [m.name for m in sc.all_microphones(include_loopback=True)]
+            raise SystemExit(f"no loopback device matching {args.device!r}; have {avail}")
+        mic = match[0]
+        print(f"[rec] explicit device match: {mic.name!r}", flush=True)
+    else:
+        spk = sc.default_speaker()
+        mic = sc.get_microphone(spk.name, include_loopback=True)
+        print(f"[rec] default-speaker loopback: {mic.name!r}", flush=True)
+    print(f"[rec] recording {args.seconds:.1f}s", flush=True)
     chunks = []
     with mic.recorder(samplerate=args.sr, channels=2, blocksize=1024) as r:
         start = time.time()

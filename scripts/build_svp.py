@@ -97,26 +97,48 @@ def build(extract_path, template_path, out_path, group_size=35):
     bpt = BLICKS_PER_QUARTER // tpb
 
     sung = [n for n in ext["notes"] if n["syllable"]]
-    svp_notes = []
+
+    # Group consecutive sung notes into words. A new word starts on a note whose
+    # `new_word` flag is True. Within a word, the first note's lyric is the WHOLE
+    # word (concatenated syllables, stripped+lowered). Continuation notes get
+    # the Synth V syllable-advance marker '+'. This drives Synth V's G2P to
+    # treat e.g. "for-est" as one word streamed across two notes instead of two
+    # independent words.
+    words = []  # list of [note_dict, ...]
+    cur = []
     for n in sung:
-        svp_notes.append({
-            "uuid": new_uuid(),
-            "musicalType": "singing",
-            "onset": n["onset_ticks"] * bpt,
-            "duration": n["dur_ticks"] * bpt,
-            "lyrics": n["syllable"].strip().lower(),
-            "phonemes": "",
-            "accent": "",
-            "pitch": n["pitch"],
-            "detune": 0,
-            "attributes": {"evenSyllableDuration": True, "muted": False},
-            "takes": {
-                "activeTakeId": 0,
-                "takes": [
-                    {"id": 0, "seedDuration": 0, "seedPitch": 0, "seedTimbre": 0, "liked": False}
-                ],
-            },
-        })
+        if n.get("new_word", False) and cur:
+            words.append(cur)
+            cur = []
+        cur.append(n)
+    if cur:
+        words.append(cur)
+
+    svp_notes = []
+    for word_notes in words:
+        whole = "".join(n["syllable"].strip().lower() for n in word_notes)
+        for i, n in enumerate(word_notes):
+            lyric = whole if i == 0 else "+"
+            svp_notes.append({
+                "uuid": new_uuid(),
+                "musicalType": "singing",
+                "onset": n["onset_ticks"] * bpt,
+                "duration": n["dur_ticks"] * bpt,
+                "lyrics": lyric,
+                "phonemes": "",
+                "accent": "",
+                "pitch": n["pitch"],
+                "detune": 0,
+                # evenSyllableDuration=False since we're now controlling syllable
+                # placement explicitly via '+' per note, not splitting one note.
+                "attributes": {"evenSyllableDuration": False, "muted": False},
+                "takes": {
+                    "activeTakeId": 0,
+                    "takes": [
+                        {"id": 0, "seedDuration": 0, "seedPitch": 0, "seedTimbre": 0, "liked": False}
+                    ],
+                },
+            })
 
     # Tempos
     tempos = []
